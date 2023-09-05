@@ -4,7 +4,7 @@ import Accordion from './modules/accordion.js';
 
 import TabNav from './modules/tab.js';
 
-import initModal from './modules/modal.js';
+import Modal from './modules/modal.js';
 
 import initTooltip from './modules/tooltip.js';
 
@@ -29,8 +29,9 @@ accordion.init();
 const tabNav = new TabNav('[data-tab="menu"] li', '[data-tab="content"] section');
 tabNav.init();
 
+const modal = new Modal('[data-modal="abrir"]', '[data-modal="fechar"]','[data-modal="container"]');
+modal.init();
 
-initModal();
 initTooltip();
 initDropdownMenu();
 initMenuMobile();

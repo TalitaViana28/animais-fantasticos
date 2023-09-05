@@ -1,28 +1,50 @@
-export default function initModal() {
-  const botaoAbrir = document.querySelector('[data-modal="abrir"]');
+export default class Modal {
+  constructor(botaoAbrir, botaoFechar, containerModal) {
+    this.botaoAbrir = document.querySelector(botaoAbrir);
 
-  const botaoFechar = document.querySelector('[data-modal="fechar"]');
-  
-  const containerModal = document.querySelector('[data-modal="container"]');
+    this.botaoFechar = document.querySelector(botaoFechar);
+    
+    this.containerModal = document.querySelector(containerModal);
 
-  function toggleModal(event) {
-    event.preventDefault();
-    containerModal.classList.toggle('ativo');
+    // bind this ao callback para
+    // fazer referência ao objeto
+    // da classe
+    this.eventToggleModal = this.eventToggleModal.bind(this);
+    this.cliqueForaMoral = this.cliqueForaModal.bind(this);
   }
 
+  // abre ou fecha o modal
+  toggleModal() {
+    this.containerModal.classList.toggle('ativo');
+  }
 
-  function cliqueForaModal(event) {
-    if(event.target === this){
-      toggleModal(event);
+  // adicona o evento de toggle ao modal
+  eventToggleModal(event) {
+    event.preventDefault();
+    this.toggleModal();
+  }
+
+ // fecha o modal ao clicar do lado de fora
+  cliqueForaModal(event) {
+    if(event.target === this.containerModal){
+      this.toggleModal();
     }
   }
+
+  // adiciona os eventos aos elementos do modal
+  addModalEvents() {
+    this.botaoAbrir.addEventListener('click', this.eventToggleModal);
   
-  if(botaoAbrir && botaoFechar && containerModal) {
-    botaoAbrir.addEventListener('click', toggleModal);
+    this.botaoFechar.addEventListener('click', this.eventToggleModal);
   
-    botaoFechar.addEventListener('click', toggleModal);
-  
-    containerModal.addEventListener('click', cliqueForaModal);
+    this.containerModal.addEventListener('click', this.cliqueForaModal);
+  }
+
+  init(){
+    if(this.botaoAbrir && this.botaoFechar && this.containerModal) {
+      this.addModalEvents();
+    }
+    return this;
   }
 }
 
