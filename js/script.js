@@ -16,7 +16,7 @@ import initFuncionamento from './modules/funcionamento.js';
 
 import initFetchAnimais from './modules/fetch-animais.js';
 
-import initFetchBitcoin from './modules/fetch-bitcoin.js'
+import fetchBitcoin from './modules/fetch-bitcoin.js'
 
 import ScrollAnima from './modules/scroll-anima.js';
 
@@ -42,8 +42,6 @@ initDropdownMenu();
 initMenuMobile();
 initFuncionamento();
 initFetchAnimais();
-initFetchBitcoin();
 
-
-fetchAnimais('../../animaispi.json', '.numeros-grid');
+fetchBitcoin('https://blockchain.info/ticker', '.btc-preco');
 
