@@ -14,7 +14,7 @@ import initMenuMobile from './modules/menu-mobile.js';
 
 import initFuncionamento from './modules/funcionamento.js';
 
-import initAnimaisFetch from './modules/fetch-animais.js'
+import initFetchAnimais from './modules/fetch-animais.js';
 
 import initFetchBitcoin from './modules/fetch-bitcoin.js'
 
@@ -38,6 +38,9 @@ tooltip.init();
 initDropdownMenu();
 initMenuMobile();
 initFuncionamento();
-initAnimaisFetch();
+initFetchAnimais();
 initFetchBitcoin();
 initAnimacaoScroll();
+
+fetchAnimais('../../animaispi.json', '.numeros-grid');
+
