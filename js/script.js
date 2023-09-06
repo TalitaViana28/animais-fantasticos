@@ -44,8 +44,8 @@ dropdownMenu.init();
 const menuMobile = new MenuMobile('[data-menu="button"]', '[data-menu="list"]');
 menuMobile.init();
 
-initFuncionamento();
 initFetchAnimais();
+initFuncionamento();
 
 fetchBitcoin('https://blockchain.info/ticker', '.btc-preco');
 
