@@ -18,7 +18,7 @@ import initFetchAnimais from './modules/fetch-animais.js';
 
 import initFetchBitcoin from './modules/fetch-bitcoin.js'
 
-import initAnimacaoScroll from './modules/animacao-scroll.js';
+import ScrollAnima from './modules/scroll-anima.js';
 
 const scrollSuave = new ScrollSuave('[data-menu="suave"] a[href^="#"]');
 scrollSuave.init();
@@ -35,12 +35,15 @@ modal.init();
 const tooltip = new Tooltip('[data-tooltip]');
 tooltip.init();
 
+const scrollAnima = new ScrollAnima('[data-anime="scroll"]');
+scrollAnima.init();
+
 initDropdownMenu();
 initMenuMobile();
 initFuncionamento();
 initFetchAnimais();
 initFetchBitcoin();
-initAnimacaoScroll();
+
 
 fetchAnimais('../../animaispi.json', '.numeros-grid');
 
