@@ -10,7 +10,7 @@ import Tooltip from './modules/tooltip.js';
 
 import DropdownMenu from './modules/dropdown-menu.js';
 
-import initMenuMobile from './modules/menu-mobile.js';
+import MenuMobile from './modules/menu-mobile.js';
 
 import initFuncionamento from './modules/funcionamento.js';
 
@@ -36,12 +36,14 @@ const tooltip = new Tooltip('[data-tooltip]');
 tooltip.init();
 
 const scrollAnima = new ScrollAnima('[data-anime="scroll"]');
-scrollAnima.init()
+scrollAnima.init();
 
 const dropdownMenu = new DropdownMenu('[data-dropdown]');
-dropdownMenu.init()
+dropdownMenu.init();
 
-initMenuMobile();
+const menuMobile = new MenuMobile('[data-menu="button"]', '[data-menu="list"]');
+menuMobile.init();
+
 initFuncionamento();
 initFetchAnimais();
 
